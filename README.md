@@ -9,15 +9,10 @@ Aplicación que permite gestionar reservas (bookings) de restaurantes con autent
 ## Estructura
 
 src/
-
 ├── dominio/ # Modelos y lógica de negocio
-
 ├── aplicacion/ # Casos de uso
-
 ├── infrastructure/ # Persistencia, seguridad, APIs
-
 └── presentation/ # Controladores y vistas
-
 
 ## Tecnologías
 
