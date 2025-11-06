@@ -49,3 +49,6 @@ boolean cancelado = controller.remover(bookingId);
 - Autenticación con JWT
 - Arquitectura desacoplada y escalable
 - Separación de responsabilidades por capas
+
+## Link Excalidraw 
+https://excalidraw.com/#room=f45b311912f92a70cf82,Vg45UPeeWpCuQojCdd0smg
