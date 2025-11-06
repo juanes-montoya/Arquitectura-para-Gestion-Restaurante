@@ -1,80 +1,47 @@
-# Sistema de Gestión de Bookings para Restaurants
+# Sistema de Gestión de Reservas de Restaurantes
+
+Sistema de reservas para restaurantes desarrollado con arquitectura hexagonal en Java.
 
 ## Descripción
 
-Sistema de gestión de reservas (bookings) para restaurantes desarrollado con arquitectura hexagonal (puertos y adaptadores). El proyecto implementa un sistema completo de reservaciones con autenticación JWT y persistencia en base de datos.
+Aplicación que permite gestionar reservas (bookings) de restaurantes con autenticación JWT y persistencia en base de datos. Implementa separación de capas siguiendo principios de arquitectura limpia.
 
-## Estructura del Proyecto
+## Estructura
 
-El proyecto sigue los principios de arquitectura hexagonal, organizando el código en las siguientes capas:
+src/
+├── dominio/ # Modelos y lógica de negocio
+├── aplicacion/ # Casos de uso
+├── infrastructure/ # Persistencia, seguridad, APIs
+└── presentation/ # Controladores y vistas
 
-ArquitecturaReservaRestaurantes/
-├── dominio/
-│ ├── modelos/
-│ │ ├── Booking.java
-│ │ ├── Restaurant.java
-│ │ ├── Usuario.java
-│ │ └── Tabla.java
-│ ├── servicios/
-│ │ └── AdministradorBookings.java
-│ └── puertos/
-│ ├── AlmacenBookings.java
-│ ├── AlmacenRestaurants.java
-│ └── ValidadorIdentidad.java
-├── aplicacion/
-│ ├── AdminBooking.java
-│ ├── AdminRestaurant.java
-│ └── interfaces/
-│ ├── ConsultarSaldo.java
-│ └── EliminarCuenta.java
-├── infrastructure/
-│ ├── persistence/
-│ │ └── AlmacenBookingsBD.java
-│ ├── security/
-│ │ └── ValidadorJwt.java
-│ └── api/
-│ └── ClienteAPIRestaurant.java
-└── presentation/
-├── controllers/
-│ ├── BookingController.java
-│ ├── RestaurantController.java
-│ └── UsuarioController.java
-└── views/
-├── bookings.html
-├── acceso.html
-└── restaurants.html
-
-
-## Tecnologías Utilizadas
+## Tecnologías
 
 - Java 8+
-- Arquitectura Hexagonal (Puertos y Adaptadores)
-- JWT para autenticación
-- SQL para persistencia de datos
-
-## Características Principales
-
-- Gestión completa de reservas (bookings)
-- Sistema de autenticación con JWT
-- Administración de restaurantes
-- Gestión de usuarios
-- Arquitectura desacoplada y escalable
-- Separación clara de responsabilidades
-
-## Arquitectura
-
-### Capa de Dominio
-Contiene la lógica de negocio central y las entidades del sistema. Es independiente de frameworks y tecnologías externas.
-
-### Capa de Aplicación
-Coordina las operaciones entre la capa de dominio y la infraestructura. Implementa los casos de uso del sistema.
-
-### Capa de Infraestructura
-Contiene las implementaciones concretas de los puertos definidos en el dominio, como persistencia, seguridad y APIs externas.
-
-### Capa de Presentación
-Maneja la interfaz de usuario y los controladores HTTP que exponen la funcionalidad del sistema.
+- Arquitectura Hexagonal
+- JWT
+- SQL
 
 ## Instalación
 
-1. Clonar el repositorio:
+git clone https://github.com/juanes-montoya/Arquitectura-para-Gestion-Restaurante.git
+cd sistema-bookings
+javac -d bin src/**/*.java
+
+## Uso
+
+// Crear reserva
+BookingController controller = new BookingController(adminBooking);
+Booking booking = controller.registrar(nuevoBooking);
+
+// Consultar reservas
+List<Booking> bookings = controller.consultar(restaurantId);
+
+// Cancelar reserva
+boolean cancelado = controller.remover(bookingId);
+
+## Características
+
+- Gestión completa de reservas
+- Autenticación con JWT
+- Arquitectura desacoplada y escalable
+- Separación de responsabilidades por capas
